@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import "color.scss";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  background-color: #2a2e33;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+.title {
+  color: $color-title;
+  font-size: 24px;
+}
+.text-line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.badge {
+  width: 40px;
+  background: $color-blue;
+  color: #fff;
+  padding: 8px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.btn-primary {
+  padding: 8px;
+  color: #fff;
+  background: linear-gradient(#4799eb, #4799eb 60%, #49acff);
+  border-radius: 4px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(#358de6, #358de6 40%, #2174b9);
+  }
+}
+.btn-secondary {
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: transparent;
+  border: 1px solid $color-gray;
+  color: $color-gray;
+  border-radius: 4px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    color: $color-hover;
+    border-color: $color-hover;
+  }
+}
