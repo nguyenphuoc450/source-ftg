@@ -1,4 +1,5 @@
-# vue-blog
+# vue-clone-free-to-game
+This is a website made based on https://www.freetogame.com/
 
 ## Project setup
 ```

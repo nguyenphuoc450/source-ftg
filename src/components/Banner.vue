@@ -16,7 +16,7 @@
         GET STARTED
       </router-link>
       <router-link
-        v-bind:to="{ name: 'Games' }"
+        v-bind:to="{ name: 'GamesList' }"
         class="banner__links-games btn-secondary"
       >
         Browse Games
@@ -55,6 +55,8 @@ export default {
     color: $color-gray;
   }
   &__links {
+    display: flex;
+    justify-content: center;
     &-register {
       padding: 12px 16px;
       font-weight: 700;

@@ -1,8 +1,9 @@
 <template>
-  <div id="home">
+  <div id="home" v-if="gamesList.length">
     <Banner />
     <GamesRecommend
       v-bind:badgeText="badgeText"
+      v-bind:titleRecommend="titleRecommend"
       v-bind:gamesRecommend="gamesRecommend"
       v-bind:handleTextTitle="handleTextTitle"
     />
@@ -12,15 +13,22 @@
       v-bind:gamesMostPlayed="gamesMostPlayed"
       v-bind:handleTextTitle="handleTextTitle"
     />
-    <Reward/>
+    <GamesCommunityRecommend
+      v-bind:badgeText="badgeText"
+      v-bind:gamesCommunityRecommend="gamesCommunityRecommend"
+    />
+    <Reward />
   </div>
+  <Loading v-else/>
 </template>
 
 <script>
 import Banner from "../components/Banner.vue";
 import GamesRecommend from "../components/games/GamesRecommend.vue";
 import GamesContent from "../components/games/GamesContent.vue";
+import GamesCommunityRecommend from "../components/games/GamesCommunityRecommend.vue";
 import Reward from "../components/Reward.vue";
+import Loading from "../components/Loading.vue";
 
 export default {
   name: "Home",
@@ -28,22 +36,27 @@ export default {
     Banner,
     GamesRecommend,
     GamesContent,
+    GamesCommunityRecommend,
     Reward,
+    Loading,
   },
   data() {
     return {
       badgeText: "FREE",
+      titleRecommend: "Personalized Recommendations",
       gamesList: [],
       gamesRecommend: [],
       gamesRecentlyAdded: [],
       gamesMostPlayed: [],
+      gamesCommunityRecommend: [],
     };
   },
   computed: {},
   methods: {
     // Get random games recommend
     getGamesRecommend() {
-      let startIndex = Math.floor(Math.random() * 363 + 1);
+      let length = this.gamesList.length - 3;
+      let startIndex = Math.floor(Math.random() * length + 1);
       let endIndex = Math.floor(startIndex + 3);
       return (this.gamesRecommend = this.gamesList.slice(startIndex, endIndex));
     },
@@ -53,9 +66,20 @@ export default {
     },
     // Get random games most played
     getGamesMostPlayed() {
-      let startIndex = Math.floor(Math.random() * 363 + 1);
+      let length = this.gamesList.length - 4;
+      let startIndex = Math.floor(Math.random() * length + 1);
       let endIndex = Math.floor(startIndex + 4);
       return (this.gamesMostPlayed = this.gamesList.slice(
+        startIndex,
+        endIndex
+      ));
+    },
+    // Get random games community recommend
+    getGamesCommunityRecommend() {
+      let length = this.gamesList.length - 2;
+      let startIndex = Math.floor(Math.random() * length + 1);
+      let endIndex = Math.floor(startIndex + 2);
+      return (this.gamesCommunityRecommend = this.gamesList.slice(
         startIndex,
         endIndex
       ));
@@ -82,6 +106,7 @@ export default {
           this.getGamesRecommend();
           this.getGamesRecentlyAdded();
           this.getGamesMostPlayed();
+          this.getGamesCommunityRecommend();
         }
       })
       .catch((error) => console.log("Error:", error));

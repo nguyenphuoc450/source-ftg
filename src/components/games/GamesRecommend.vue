@@ -2,8 +2,8 @@
   <section id="games-recommend">
     <div class="container games-recommend">
       <h3 class="games-recommend__title title">
-        <i class="fas fa-robot"></i>
-        Personalized Recommendations
+        <!-- <i class="fas fa-robot"></i> -->
+        {{titleRecommend}}
       </h3>
       <div class="games-card">
         <router-link
@@ -11,8 +11,8 @@
           v-for="game in gamesRecommend"
           :key="game.id"
           v-bind:to="{
-            name: 'Detail',
-            params: { name: handleTextTitle(game.title), id: game.id },
+            name: 'GamesDetail',
+            params: {id: game.id },
           }"
         >
           <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" />
@@ -35,6 +35,7 @@ export default {
   name: "GamesRecommend",
   props: {
     badgeText: String,
+    titleRecommend: String,
     gamesRecommend: Array,
     handleTextTitle: Function,
   },
@@ -49,7 +50,7 @@ export default {
 }
 .games-recommend {
   &__title {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   .games-card {
     display: grid;
@@ -59,7 +60,6 @@ export default {
       background-color: $color-dark;
       border-radius: 4px;
       transition: all ease 0.3s;
-      cursor: pointer;
       &:hover {
         transform: scale(1.02);
         box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.199);

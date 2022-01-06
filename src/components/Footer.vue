@@ -49,6 +49,10 @@ export default {
             &-item {
                 padding: 0 12px;
                 color: #fff;
+                transition: all ease 0.3s;
+                &:hover {
+                  color: #d9d9d9;
+                }
             }
         }
     }

@@ -3,9 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Games from '../views/Games.vue'
-import Category from '../views/Category.vue'
-import Detail from '../views/Detail.vue'
+import GamesList from '../views/games/GamesList.vue'
+import GamesCategory from '../views/games/GamesCategory.vue'
+import GamesDetail from '../views/games/GamesDetail.vue'
 import Search from '../views/Search.vue'
 
 
@@ -29,18 +29,18 @@ const routes = [
   },
   {
     path: '/games',
-    name: 'Games',
-    component: Games
+    name: 'GamesList',
+    component: GamesList
   },
   {
     path: '/games/:category',
-    name: 'Category',
-    component: Category
+    name: 'GamesCategory',
+    component: GamesCategory
   },
   {
-    path: '/:name',
-    name: 'Detail',
-    component: Detail,
+    path: '/:id',
+    name: 'GamesDetail',
+    component: GamesDetail,
     props: true
   },
   {

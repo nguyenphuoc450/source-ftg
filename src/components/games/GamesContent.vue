@@ -8,8 +8,8 @@
           v-for="game in gamesRecentlyAdded"
           :key="game.id"
           v-bind:to="{
-            name: 'Detail',
-            params: { name: handleTextTitle(game.title), id: game.id },
+            name: 'GamesDetail',
+            params: {id: game.id },
           }"
         >
           <div class="games-recently-added__card-image">
@@ -36,7 +36,7 @@
         </router-link>
 
         <router-link
-          v-bind:to="{ name: 'Games' }"
+          v-bind:to="{ name: 'GamesList' }"
           class="games-recently-added__btn btn-secondary"
         >
           More Games <i class="fas fa-angle-right"></i>
@@ -51,8 +51,8 @@
           v-for="game in gamesMostPlayed"
           :key="game.id"
           v-bind:to="{
-            name: 'Detail',
-            params: { name: handleTextTitle(game.title), id: game.id },
+            name: 'GamesDetail',
+            params: { id: game.id },
           }"
         >
           <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" />

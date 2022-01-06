@@ -11,23 +11,31 @@
         <div class="nav-menu__links-left">
           <router-link
             class="nav-menu__links-left-item"
-            v-for="link in navLinksLeft"
-            :key="link.name"
-            v-bind:to="{ name: link.name }"
+            v-bind:to="{ name: 'GamesList' }"
           >
-            {{ link.text }}
+            GamesList
           </router-link>
         </div>
         <!-- Link right -->
         <div class="nav-menu__links-right">
           <router-link
             class="nav-menu__links-right-item"
-            v-for="link in navLinksRight"
-            :key="link.name"
-            v-bind:class="{ register: link.class }"
-            v-bind:to="{ name: link.name }"
+            v-bind:to="{ name: 'Search' }"
+            title="Search"
           >
-            {{ link.text }}
+            <i class="fas fa-search"></i>
+          </router-link>
+          <router-link
+            class="nav-menu__links-right-item"
+            v-bind:to="{ name: 'Login' }"
+          >
+            Login
+          </router-link>
+          <router-link
+            class="nav-menu__links-right-item register"
+            v-bind:to="{ name: 'Register' }"
+          >
+            Register
           </router-link>
         </div>
       </div>
@@ -39,29 +47,7 @@
 export default {
   name: "NavMenu",
   data() {
-    return {
-      navLinksLeft: [
-        {
-          name: "Games",
-          text: "Games List",
-        },
-      ],
-      navLinksRight: [
-        {
-          name: "Search",
-          text: "Search",
-        },
-        {
-          name: "Login",
-          text: "Login",
-        },
-        {
-          name: "Register",
-          text: "Register",
-          class: true,
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>
@@ -94,10 +80,9 @@ export default {
       }
     }
     &-right {
-      display: grid;
+      display: flex;
       align-items: center;
       justify-content: flex-end;
-      grid-template: auto / auto auto auto;
       &-item.register {
         border: 1px solid $color-blue;
         border-radius: 4px;
