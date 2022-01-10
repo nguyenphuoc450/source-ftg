@@ -5,7 +5,7 @@
         <h3 class="games-recently-added__title title">Recenly Added</h3>
         <router-link
           class="games-recently-added__card shadow"
-          v-for="game in gamesRecentlyAdded"
+          v-for="game in allGamesRecentlyAdded"
           :key="game.id"
           v-bind:to="{
             name: 'GamesDetail',
@@ -31,7 +31,7 @@
             </span>
           </div>
           <span class="games-recently-added__card-badge badge">{{
-            badgeText
+            textBadge
           }}</span>
         </router-link>
 
@@ -48,7 +48,7 @@
         </h3>
         <router-link
           class="games-most-played__card"
-          v-for="game in gamesMostPlayed"
+          v-for="game in allGamesMostPlayed"
           :key="game.id"
           v-bind:to="{
             name: 'GamesDetail',
@@ -57,7 +57,7 @@
         >
           <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" />
           <span class="games-most-played__card-badge badge">
-            {{ badgeText }}
+            {{ textBadge }}
           </span>
         </router-link>
       </div>
@@ -66,14 +66,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "GamesContent",
-  props: {
-    badgeText: String,
-    gamesRecentlyAdded: Array,
-    gamesMostPlayed: Array,
-    handleTextTitle: Function,
-  },
+  computed: {
+    ...mapGetters(['textBadge', 'allGamesRecentlyAdded', 'allGamesMostPlayed'])
+  }
 };
 </script>
 

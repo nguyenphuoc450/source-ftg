@@ -16,7 +16,7 @@
         </p>
         <div class="card-game__body-info">
           <span class="card-game__body-info-genre">{{ game.genre }}</span>
-          <span class="card-game__body-info-badge badge">{{ badgeText }}</span>
+          <span class="card-game__body-info-badge badge">{{ textBadge }}</span>
         </div>
       </div>
     </router-link>
@@ -24,12 +24,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "GamesListCard",
-  props: {
-    gamesList: null,
-    badgeText: "",
-  },
   data() {
     return {
       gamesShow: [],
@@ -37,13 +35,14 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['allGames' ,'textBadge']),
     getGamesShow() {
-      return (this.gamesShow = this.gamesList.slice(0, this.limit));
+      return (this.gamesShow = this.allGames.slice(0, this.limit));
     },
   },
   methods: {
     // Increase limit to show more games
-    IncreaseLimitGame() {
+    increaseLimitGame() {
       if (
         document.documentElement.scrollTop + window.innerHeight ===
         document.documentElement.offsetHeight
@@ -53,10 +52,10 @@ export default {
     },
   },
   created() {
-    window.addEventListener("scroll", this.IncreaseLimitGame);
+    window.addEventListener("scroll", this.increaseLimitGame);
   },
   destroyed() {
-    window.addEventListener("scroll", this.IncreaseLimitGame);
+    window.addEventListener("scroll", this.increaseLimitGame);
   },
   mounted() {
     this.getGamesShow;

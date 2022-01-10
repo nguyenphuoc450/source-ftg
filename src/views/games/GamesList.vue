@@ -1,18 +1,17 @@
 <template>
-  <div v-if="gamesList.length">
+  <div v-if="allGames.length">
     <GamesRecommend
       v-bind:titleRecommend="titleRecommend"
-      v-bind:badgeText="badgeText"
-      v-bind:gamesRecommend="gamesRecommend"
     />
     <GamesFilter v-bind:totalGames="totalGames" />
-    <GamesListCard v-bind:badgeText="badgeText" v-bind:gamesList="gamesList" />
+    <GamesListCard/>
   </div>
 
   <Loading v-else />
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import GamesRecommend from "../../components/games/GamesRecommend.vue";
 import GamesFilter from "../../components/games/GamesFilter.vue";
 import GamesListCard from "../../components/games/GamesListCard.vue";
@@ -27,41 +26,26 @@ export default {
   },
   data() {
     return {
-      gamesList: [],
-      badgeText: "FREE",
       titleRecommend: "Best Free to Play Games for PC and Browser in 2022!",
-      gamesRecommend: [],
       totalGames: null,
     };
   },
+  computed: {
+    ...mapGetters(['allGames', 'allGamesRecommend'])
+  },
   methods: {
-    // Get random games best free to play
-    getGamesBestFreeToPlay() {
-      let length = this.gamesList.length - 3;
-      let startIndex = Math.floor(Math.random() * length + 1);
-      let endIndex = Math.floor(startIndex + 3);
-      return (this.gamesRecommend = this.gamesList.slice(startIndex, endIndex));
-    },
+    ...mapActions(['fetchGames', 'randomGamesRecommend']),
+
+    async handleWait() {
+      await this.fetchGames()
+      this.randomGamesRecommend()
+    }
+  },
+  created() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   },
   mounted() {
-    // Get data from api
-    fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-        "x-rapidapi-key": "fc992028d5mshf0e2294d608259ep117215jsna8b9ca2ee164",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.gamesList = data;
-        // Get games by condition
-        if (this.gamesList.length) {
-          this.getGamesBestFreeToPlay();
-          this.totalGames = this.gamesList.length;
-        }
-      })
-      .catch((error) => console.log("Error:", error));
+    this.handleWait()
   },
 };
 </script>

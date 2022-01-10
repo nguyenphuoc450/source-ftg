@@ -6,7 +6,7 @@
           <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" />
         </div>
         <div class="games-detail__sidebar-info">
-          <span class="games-detail__sidebar-info-badge">{{ badgeText }}</span>
+          <span class="games-detail__sidebar-info-badge">{{ textBadge }}</span>
           <a
             v-bind:href="game.game_url"
             class="games-detail__sidebar-info-play-now btn-primary"
@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Loading from "../../components/Loading.vue"
 export default {
   name: "GamesDetail",
@@ -120,9 +121,11 @@ export default {
   data() {
     return {
       game: [],
-      badgeText: "FREE",
       isActiveModal: false,
     };
+  },
+  computed: {
+    ...mapGetters(['textBadge'])
   },
   methods: {
     openModalImage(imagePath) {
@@ -132,7 +135,10 @@ export default {
     },
     closeModalScreenshot() {
       this.isActiveModal = false;
-    }
+    },
+  },
+  created() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   },
   mounted() {
     // Get data from api

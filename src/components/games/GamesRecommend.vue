@@ -8,7 +8,7 @@
       <div class="games-card">
         <router-link
           class="games-card__item shadow"
-          v-for="game in gamesRecommend"
+          v-for="game in allGamesRecommend"
           :key="game.id"
           v-bind:to="{
             name: 'GamesDetail',
@@ -21,7 +21,7 @@
               {{ game.title }}
             </h4>
             <span class="games-card__item-body-badge badge">{{
-              badgeText
+              textBadge
             }}</span>
           </div>
         </router-link>
@@ -31,14 +31,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: "GamesRecommend",
   props: {
-    badgeText: String,
     titleRecommend: String,
-    gamesRecommend: Array,
-    handleTextTitle: Function,
   },
+  computed: {
+    ...mapGetters(['textBadge', 'allGamesRecommend'])
+  }
 };
 </script>
 

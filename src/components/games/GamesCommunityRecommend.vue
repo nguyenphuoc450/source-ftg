@@ -7,7 +7,7 @@
       <div class="community-recommend__list-card">
         <div
           class="card"
-          v-for="game in gamesCommunityRecommend"
+          v-for="game in allGamesCommunityRecommend"
           :key="game.id"
         >
           <router-link
@@ -19,7 +19,7 @@
               <h4 class="card__game-body-name title text-line-clamp-1">
                 {{ game.title }}
               </h4>
-              <span class="card__game-body-badge badge">{{ badgeText }}</span>
+              <span class="card__game-body-badge badge">{{ textBadge }}</span>
             </div>
           </router-link>
           <div class="card__cmt">
@@ -39,12 +39,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "GamesCommunityRecommend",
-  props: {
-    badgeText: String,
-    gamesCommunityRecommend: null,
-  },
+  computed: {
+    ...mapGetters(['textBadge', 'allGamesCommunityRecommend'])
+  }
 };
 </script>
 
