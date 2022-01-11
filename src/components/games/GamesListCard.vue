@@ -6,7 +6,7 @@
       :key="game.id"
       v-bind:to="{ name: 'GamesDetail', params: { id: game.id } }"
     >
-      <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" />
+      <img v-bind:src="game.thumbnail" v-bind:alt="game.thumbnail" loading="lazy" />
       <div class="card-game__body">
         <h4 class="card-game__body-name title text-line-clamp-1">
           {{ game.title }}
@@ -28,6 +28,9 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: "GamesListCard",
+  props: {
+    allGames: Array
+  },
   data() {
     return {
       gamesShow: [],
@@ -35,9 +38,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['allGames' ,'textBadge']),
+    ...mapGetters(['textBadge']),
     getGamesShow() {
-      return (this.gamesShow = this.allGames.slice(0, this.limit));
+      if(this.allGames)  return (this.gamesShow = this.allGames.slice(0, this.limit));
     },
   },
   methods: {
@@ -69,7 +72,7 @@ export default {
 .games-list-card {
   padding: 12px 0;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
   .card-game {
     background: $color-dark;
@@ -77,6 +80,7 @@ export default {
     display: flex;
     flex-direction: column;
     transition: all ease 0.3s;
+    animation: fadeIn linear 0.3s;
     &:hover {
       transform: scale(1.02);
       box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.199);

@@ -3,6 +3,7 @@
     <Banner />
     <GamesRecommend
       v-bind:titleRecommend="titleRecommend"
+      v-bind:allGamesRecommend="allGamesRecommend"
     />
     <GamesContent/>
     <GamesCommunityRecommend/>

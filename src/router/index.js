@@ -35,10 +35,11 @@ const routes = [
   {
     path: '/games/:category',
     name: 'GamesCategory',
-    component: GamesCategory
+    component: GamesCategory,
+    props: true
   },
   {
-    path: '/:id',
+    path: '/detail/:id',
     name: 'GamesDetail',
     component: GamesDetail,
     props: true

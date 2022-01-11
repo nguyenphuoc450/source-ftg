@@ -10,8 +10,9 @@
           <a
             v-bind:href="game.game_url"
             class="games-detail__sidebar-info-play-now btn-primary"
-            >PLAY NOW</a
           >
+            PLAY NOW
+          </a>
         </div>
       </div>
       <div class="games-detail__content">
@@ -92,7 +93,6 @@
     </div>
     <div
       class="modal-screenshot"
-      ref="modalScreenshot"
       v-show="isActiveModal"
       v-on:click="closeModalScreenshot"
     >

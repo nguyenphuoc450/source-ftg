@@ -1,8 +1,10 @@
 export default {
     games: [],
-    gamesRecommend: null,
-    gamesRecentlyAdded: null,
-    gamesMostPlayed: null,
-    gamesCommunityRecommend: null,
+    gamesRecommend: [],
+    gamesRecentlyAdded: [],
+    gamesMostPlayed: [],
+    gamesCommunityRecommend: [],
+    gamesByFilter: [],
+    randomGamesByFilter: [],
     textBadgeFree: 'FREE'
 }

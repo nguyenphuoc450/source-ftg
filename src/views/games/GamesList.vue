@@ -2,9 +2,10 @@
   <div v-if="allGames.length">
     <GamesRecommend
       v-bind:titleRecommend="titleRecommend"
+      v-bind:allGamesRecommend="allGamesRecommend"
     />
-    <GamesFilter v-bind:totalGames="totalGames" />
-    <GamesListCard/>
+    <GamesFilter v-bind:totalGames="getTotalGames" />
+    <GamesListCard v-bind:allGames="allGames"/>
   </div>
 
   <Loading v-else />
@@ -27,11 +28,14 @@ export default {
   data() {
     return {
       titleRecommend: "Best Free to Play Games for PC and Browser in 2022!",
-      totalGames: null,
     };
   },
   computed: {
-    ...mapGetters(['allGames', 'allGamesRecommend'])
+    ...mapGetters(['allGames', 'allGamesRecommend']),
+    getTotalGames() {
+      return this.allGames.length
+    }
+    
   },
   methods: {
     ...mapActions(['fetchGames', 'randomGamesRecommend']),

@@ -36,9 +36,10 @@ export default {
   name: "GamesRecommend",
   props: {
     titleRecommend: String,
+    allGamesRecommend: Array,
   },
   computed: {
-    ...mapGetters(['textBadge', 'allGamesRecommend'])
+    ...mapGetters(['textBadge'])
   }
 };
 </script>

@@ -72,7 +72,7 @@ export default {
     grid-template: auto / 1fr 1fr;
     a {
       padding: 12px 16px;
-      display: block;
+      display: inline-block;
       color: $text-nav-color;
       transition: all ease 0.3s;
       &:hover {
