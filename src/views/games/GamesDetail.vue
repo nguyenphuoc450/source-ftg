@@ -109,7 +109,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Loading from "../../components/Loading.vue"
+import Loading from "../../components/common/Loading.vue"
 export default {
   name: "GamesDetail",
   components: {

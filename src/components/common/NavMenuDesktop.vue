@@ -1,38 +1,37 @@
 <template>
-  <nav id="nav-menu">
-    <div class="container nav-menu">
-      <div class="nav-menu__logo">
+    <div class="container nav-menu-desktop">
+      <div class="nav-menu-desktop__logo">
         <router-link v-bind:to="{ name: 'Home' }">
-          <img src="../assets/logo.png" alt="" />
+          <img src="../../assets/logo.png" alt="" />
         </router-link>
       </div>
-      <div class="nav-menu__links">
+      <div class="nav-menu-desktop__links">
         <!-- Link Left -->
-        <div class="nav-menu__links-left">
+        <div class="nav-menu-desktop__links-left">
           <router-link
-            class="nav-menu__links-left-item"
+            class="nav-menu-desktop__links-left-item"
             v-bind:to="{ name: 'GamesList' }"
           >
             GamesList
           </router-link>
         </div>
         <!-- Link right -->
-        <div class="nav-menu__links-right">
+        <div class="nav-menu-desktop__links-right">
           <router-link
-            class="nav-menu__links-right-item"
+            class="nav-menu-desktop__links-right-item"
             v-bind:to="{ name: 'Search' }"
             title="Search"
           >
             <i class="fas fa-search"></i>
           </router-link>
           <router-link
-            class="nav-menu__links-right-item"
+            class="nav-menu-desktop__links-right-item"
             v-bind:to="{ name: 'Login' }"
           >
             Login
           </router-link>
           <router-link
-            class="nav-menu__links-right-item register"
+            class="nav-menu-desktop__links-right-item register"
             v-bind:to="{ name: 'Register' }"
           >
             Register
@@ -40,30 +39,22 @@
         </div>
       </div>
     </div>
-  </nav>
+
 </template>
 
 <script>
 export default {
-  name: "NavMenu",
+  name: "NavMenuDesktop",
   data() {
     return {};
   },
 };
 </script>
 
-<style lang="scss">
-@import "../assets/styles/color.scss";
+<style lang="scss" scoped>
+@import "../../assets/styles/color.scss";
 
-#nav-menu {
-  position: sticky;
-  top: 0;
-  padding: 6px 0;
-  background: #272b30;
-  border-bottom: 1px solid rgba(28, 28, 28, 0.6);
-  z-index: 1000;
-}
-.nav-menu {
+.nav-menu-desktop {
   display: grid;
   align-items: center;
   grid-template: auto / 165px 1fr;

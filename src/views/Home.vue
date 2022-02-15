@@ -19,7 +19,7 @@ import GamesRecommend from "../components/games/GamesRecommend.vue";
 import GamesContent from "../components/games/GamesContent.vue";
 import GamesCommunityRecommend from "../components/games/GamesCommunityRecommend.vue";
 import Reward from "../components/Reward.vue";
-import Loading from "../components/Loading.vue";
+import Loading from "../components/common/Loading.vue";
 
 export default {
   name: "Home",

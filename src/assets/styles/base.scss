@@ -19,8 +19,9 @@ h4 {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
 .container {
-  width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px !important;
 }
 .title {
   color: $color-title;

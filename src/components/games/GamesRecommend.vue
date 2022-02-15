@@ -56,9 +56,10 @@ export default {
   }
   .games-card {
     display: grid;
-    grid-template: auto / auto auto auto;
+    grid-template: auto / repeat(3, 1fr);
     grid-gap: 15px;
     &__item {
+      display: grid;
       background-color: $color-dark;
       border-radius: 4px;
       transition: all ease 0.3s;

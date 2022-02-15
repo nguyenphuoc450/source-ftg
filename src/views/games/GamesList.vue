@@ -16,7 +16,7 @@ import { mapGetters, mapActions } from 'vuex'
 import GamesRecommend from "../../components/games/GamesRecommend.vue";
 import GamesFilter from "../../components/games/GamesFilter.vue";
 import GamesListCard from "../../components/games/GamesListCard.vue";
-import Loading from "../../components/Loading.vue";
+import Loading from "../../components/common/Loading.vue";
 export default {
   name: "Games",
   components: {

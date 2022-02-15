@@ -151,14 +151,20 @@ export default {
       if(categoryFormat.includes('pc')) {
         url = 'platform=pc'
         this.platform.current = category
+        this.genres.current = 'All genres'
+        this.sortBy.current = 'Relevance'
       }
       else if(categoryFormat.includes('browser')) {
         url = 'platform=browser'
         this.platform.current = category
+        this.genres.current = 'All genres'
+        this.sortBy.current = 'Relevance'
       }
       else if(categoryFormat.includes('all-platform')) {
         url = ''
         this.platform.current = category
+        this.genres.current = 'All genres'
+        this.sortBy.current = 'Relevance'
       }
       else if( categoryFormat.includes('relevance') ||
           categoryFormat.includes('popularity') ||
@@ -167,14 +173,20 @@ export default {
       ) {
         url = `sort-by=${categoryFormat}`
         this.sortBy.current = category
+        this.platform.current = 'All Platform'
+        this.genres.current = 'All genres'
       }
       else if(categoryFormat.includes('all-genres')) {
         url = ''
         this.genres.current = category
+        this.platform.current = 'All Platform'
+        this.sortBy.current = 'Relevance'
       }
       else {
         url = `category=${categoryFormat}`
         this.genres.current = category
+        this.platform.current = 'All Platform'
+        this.sortBy.current = 'Relevance'
       }
       this.$emit('onSelectCategory', url)
     },

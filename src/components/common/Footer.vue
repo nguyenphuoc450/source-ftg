@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/color.scss";
+@import "../../assets/styles/color.scss";
 #footer {
   background-color: #1c1e22;
   border-radius: 4px;

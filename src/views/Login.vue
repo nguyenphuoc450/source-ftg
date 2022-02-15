@@ -25,7 +25,10 @@
 
 <script>
 export default {
-name: 'Login'
+  name: 'Login',
+  created() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  },
 }
 </script>
 

@@ -29,7 +29,10 @@
 
 <script>
 export default {
-name:'Register'
+  name:'Register',
+  created() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  },
 }
 </script>
 
