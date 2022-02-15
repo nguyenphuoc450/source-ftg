@@ -57,4 +57,17 @@ export default {
         }
     }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .footer {
+    &__bottom {
+      flex-wrap: wrap;
+      grid-gap: 12px;
+      &-socials {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
 </style>

@@ -86,4 +86,18 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .games-recommend {
+    .games-card {
+      display: flex;
+      overflow-x: auto;
+      &__item {
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 260px !important;
+      }
+    }
+  }
+}
 </style>

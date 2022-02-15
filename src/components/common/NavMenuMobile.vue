@@ -95,7 +95,7 @@ export default {
         }
     }
     &__wrapper {
-        width: 30%;
+        width: 50%;
         position: fixed;
         top: 0;
         left: 0;

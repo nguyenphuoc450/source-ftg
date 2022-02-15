@@ -67,4 +67,16 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .banner {
+    padding: 32px 0;
+    &__title {
+      font-size: 26px;
+    }
+    &__description {
+      margin: 18px 0 26px;
+    }
+  }
+}
 </style>

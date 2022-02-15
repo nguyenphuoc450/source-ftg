@@ -159,4 +159,20 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .games-content {
+    grid-template-columns: 1fr;
+    .games-recently-added {
+      &__card {
+        grid-template-columns: 20% 60% 20%;
+      }
+    }
+    .games-most-played {
+      &__card {
+        max-width: 300px;
+      }
+    }
+  }
+}
 </style>

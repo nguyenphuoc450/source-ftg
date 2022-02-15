@@ -120,4 +120,11 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .games-list-card {
+    padding: 24px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>

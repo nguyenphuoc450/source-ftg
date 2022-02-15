@@ -109,4 +109,10 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

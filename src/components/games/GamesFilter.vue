@@ -272,4 +272,14 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .games-filter {
+    padding: 24px;
+    .options {
+      grid-gap: 24px;
+      grid-template-columns: 1fr;
+    }
+  }
+}
 </style>

@@ -120,4 +120,12 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .community-recommend {
+    &__list-card {
+      grid-template-columns: 1fr;
+    }
+  }
+}
 </style>
