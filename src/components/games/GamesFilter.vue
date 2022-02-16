@@ -203,7 +203,7 @@ export default {
 @import "../../assets/styles/color.scss";
 
 .games-filter {
-  padding: 12px 0;
+  padding: 12px 24px;
   &__total {
     color: $color-gray;
   }

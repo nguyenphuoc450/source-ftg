@@ -70,7 +70,7 @@ export default {
 @import "../../assets/styles/color.scss";
 
 .games-list-card {
-  padding: 12px 0;
+  padding: 12px 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
