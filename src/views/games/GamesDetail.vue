@@ -324,4 +324,35 @@ export default {
     }
   }
 }
+// Responsive
+@media screen and (max-width: 767px) {
+  .games-detail {
+    grid-template-columns: 1fr;
+    &__sidebar {
+      position: static;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+    &__content {
+      .additional-info__list {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 12px;
+      }
+      .screenshots__list {
+        position: relative;
+        // overflow-x: auto;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        grid-gap: 12px;
+        &-item {
+          flex-shrink: 0;
+          flex-grow: 0;
+          max-width: 300px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
 </style>
