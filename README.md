@@ -1,7 +1,7 @@
 # vue-clone-free-to-game
 View on: https://nguyenphuoc450.github.io/FTG/ \
-Overview: use Vue2, VueX, VueRouter \
-feature: get API from freetogame & render, can search game, filter game
+Overview: get API from freetogame & render, can search game, filter game \
+Use: Vue2, VueX, VueRouter
 ## Project setup
 ```
 yarn install
