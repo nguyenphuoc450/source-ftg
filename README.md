@@ -1,5 +1,5 @@
 # vue-clone-free-to-game
-View on: https://nguyenphuoc450.github.io/FTG/
+View on: https://nguyenphuoc450.github.io/FTG/ \
 Overview: get API from freetogame & render, can search game, filter game
 ## Project setup
 ```
