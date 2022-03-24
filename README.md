@@ -1,6 +1,6 @@
 # vue-clone-free-to-game
-This is a website made based on https://www.freetogame.com/
-
+View on: https://nguyenphuoc450.github.io/FTG/
+Overview: get API from freetogame & render, can search game, filter game
 ## Project setup
 ```
 yarn install
